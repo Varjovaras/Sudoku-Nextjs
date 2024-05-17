@@ -14,7 +14,7 @@ const sudoku = [
 
 export default function DocsPage() {
 	return (
-		<div>
+		<section>
 			<h1 className={title()}>Sudoku</h1>
 			<div className="grid grid-cols-9">
 				{sudoku.map((row, i) => {
@@ -31,6 +31,6 @@ export default function DocsPage() {
 					);
 				})}
 			</div>
-		</div>
+		</section>
 	);
 }
