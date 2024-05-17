@@ -46,7 +46,8 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-9">123</div>
+
+      </div>
 
       <div className="mt-8">
         <Snippet hideSymbol hideCopyButton variant="flat">
