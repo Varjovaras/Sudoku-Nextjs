@@ -1,7 +1,7 @@
 "use client";
 import { title } from "@/components/primitives";
 import { useState } from "react";
-import { newSudoku } from "./sudoku";
+import { newSudoku } from "./sudokuHelpers";
 
 const [sudoku, _setSudoku] = useState(newSudoku());
 
