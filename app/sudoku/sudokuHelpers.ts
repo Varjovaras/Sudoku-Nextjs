@@ -1,4 +1,9 @@
-import type { Box, Cell, SudokuGrid } from "@/types/sudokuTypes";
+import type {
+  Box,
+  Cell,
+  SudokuGrid,
+  SudokuGridOfBoxes,
+} from "@/types/sudokuTypes";
 
 //example cell
 const cell: Cell = {
@@ -21,12 +26,6 @@ export const newSudoku = (): SudokuGrid => {
   return sudoku;
 };
 
-export type SudokuGridOfBoxes = [
-  [Box, Box, Box],
-  [Box, Box, Box],
-  [Box, Box, Box],
-];
-
 export const newBox = (): Box => {
   const tempCell: Cell = { value: 1 };
   const tempBox: Box = [
@@ -37,13 +36,16 @@ export const newBox = (): Box => {
   return tempBox;
 };
 
-export const getBoxes = (grid: SudokuGrid): SudokuGridOfBoxes => {
-  const box: SudokuGridOfBoxes = [
+export const newSudokuGridOfBoxes = (): SudokuGridOfBoxes => {
+  return [
     [newBox(), newBox(), newBox()],
     [newBox(), newBox(), newBox()],
     [newBox(), newBox(), newBox()],
   ];
+};
 
+export const getBoxes = (grid: SudokuGrid): SudokuGridOfBoxes => {
+  const box: SudokuGridOfBoxes = newSudokuGridOfBoxes();
   //i represents the three rows of boxes
   //j represents the three boxes in a row
   //k is the index of row of cells inside a box
@@ -58,4 +60,34 @@ export const getBoxes = (grid: SudokuGrid): SudokuGridOfBoxes => {
     }
   }
   return box;
+};
+
+/**
+ *doesnt complete boxes
+ */
+export const newCompletedSudoku = (): SudokuGrid => {
+  const cells: Cell[] = [
+    { value: 1 },
+    { value: 2 },
+    { value: 3 },
+    { value: 4 },
+    { value: 5 },
+    { value: 6 },
+    { value: 7 },
+    { value: 8 },
+    { value: 9 },
+  ];
+
+  let sudoku = newSudoku();
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      let index = i + j;
+      if (index > 8) {
+        index -= 9;
+      }
+      sudoku[i][j] = cells[index];
+    }
+  }
+
+  return sudoku;
 };

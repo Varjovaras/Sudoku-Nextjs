@@ -1,11 +1,10 @@
 "use client";
 import { title } from "@/components/primitives";
 import { useState } from "react";
-import { newSudoku } from "./sudokuHelpers";
-
-const [sudoku, _setSudoku] = useState(newSudoku());
+import { newCompletedSudoku, newSudoku as _newSudoku } from "./sudokuHelpers";
 
 export default function DocsPage() {
+  const [sudoku, _setSudoku] = useState(newCompletedSudoku());
   return (
     <section>
       <h1 className={title()}>Sudoku</h1>
@@ -15,9 +14,9 @@ export default function DocsPage() {
             <div key={`${i.toString()}row`}>
               {row.map((cell, j) => {
                 return (
-                  <div className="border p-4" key={`${j.toString()}${j}`}>
+                  <button className="border p-4" key={`${j.toString()}${j}`}>
                     {cell.value}
-                  </div>
+                  </button>
                 );
               })}
             </div>
