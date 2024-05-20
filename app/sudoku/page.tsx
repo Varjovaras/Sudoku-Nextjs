@@ -1,7 +1,7 @@
 "use client";
 import { title } from "@/components/primitives";
+import { newCompletedSudoku } from "@/sudoku/sudokuHelpers";
 import { useState } from "react";
-import { newCompletedSudoku, newSudoku as _newSudoku } from "./sudokuHelpers";
 
 export default function DocsPage() {
 	const [sudoku, _setSudoku] = useState(newCompletedSudoku());
@@ -19,7 +19,7 @@ export default function DocsPage() {
 										type="button"
 										key={`${j.toString()}${j}`}
 									>
-										{cell.value}
+										{cell}
 									</button>
 								);
 							})}
