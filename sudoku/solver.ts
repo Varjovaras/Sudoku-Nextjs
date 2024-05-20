@@ -40,6 +40,9 @@ export const checkCompletedSudoku = (grid: SudokuGrid): boolean => {
 			!checkSudokuRowOrColumn(grid[i]) ||
 			!checkSudokuRowOrColumn(columns[i])
 		) {
+			console.log(
+				`sudoku not completable in grid number ${i} with values ${grid[i]} or column number ${i} with values ${columns[i]}`,
+			);
 			return false;
 		}
 	}
@@ -47,6 +50,9 @@ export const checkCompletedSudoku = (grid: SudokuGrid): boolean => {
 	for (let i = 0; i < 3; i++) {
 		for (let j = 0; j < 3; j++) {
 			if (!checkSudokuBox(boxes[i][j])) {
+				console.log(
+					`box not viable with the coordinates ${i} ${j} and the values of ${boxes[i][j]}`,
+				);
 				return false;
 			}
 		}

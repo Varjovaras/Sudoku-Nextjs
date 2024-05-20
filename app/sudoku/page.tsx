@@ -1,5 +1,6 @@
 "use client";
 import { title } from "@/components/primitives";
+import { checkCompletedSudoku } from "@/sudoku/solver";
 import { newCompletedSudoku } from "@/sudoku/sudokuHelpers";
 import { useState } from "react";
 
@@ -27,6 +28,9 @@ export default function DocsPage() {
 					);
 				})}
 			</div>
+			<button type="button" onClick={() => checkCompletedSudoku(sudoku)}>
+				solved?
+			</button>
 		</section>
 	);
 }
