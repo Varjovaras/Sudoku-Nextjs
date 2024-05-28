@@ -18,10 +18,7 @@ export default function DocsPage() {
 		<section>
 			<h1 className={title()}>Sudoku</h1>
 			<Grid sudoku={sudoku} />
-			<button type="button" onClick={setSolvedSudoku}>
-				solved?
-			</button>
-			<SolvedSudoku solved={solved} />
+			<SolvedSudoku solved={solved} setSolvedSudoku={setSolvedSudoku} />
 		</section>
 	);
 }
