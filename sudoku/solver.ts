@@ -34,11 +34,7 @@ import { getBoxes, getColumns } from "./sudokuHelpers";
 // };
 
 export const checkCompletedSudoku = (grid: SudokuGrid): boolean => {
-	if (!checkAllRows(grid) || !checkAllColumns(grid) || !checkAllBoxes(grid)) {
-		return false;
-	}
-
-	return true;
+	return checkAllRows(grid) && checkAllColumns(grid) && checkAllBoxes(grid);
 };
 
 export const checkAllRows = (grid: SudokuGrid): boolean => {
