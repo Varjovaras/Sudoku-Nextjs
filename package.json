@@ -38,6 +38,12 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.3"
+    "@biomejs/biome": "1.7.3",
+    "@types/bun": "latest"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }

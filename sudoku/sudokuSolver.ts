@@ -13,7 +13,6 @@ export const solveSudoku = (grid: SudokuGrid): boolean => {
 			if (solveSudoku(grid)) {
 				return true;
 			}
-
 			grid[row][col] = null;
 		}
 	}
