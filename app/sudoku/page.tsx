@@ -2,7 +2,7 @@
 import { Grid } from "@/components/grid";
 import { title } from "@/components/primitives";
 import { SolvedSudoku } from "@/components/solvedSudoku";
-import { checkCompletedSudoku } from "@/sudoku/solver";
+import { checkCompletedSudoku } from "@/sudoku/sudokuChecker";
 import { newCompletedSudoku } from "@/sudoku/sudokuHelpers";
 import { useState } from "react";
 
