@@ -1,25 +1,20 @@
-import type { SudokuGrid, SudokuNumber } from "@/types/sudokuTypes";
-import { newCompletedSudoku } from "./sudokuHelpers";
+import type { SudokuGrid } from "@/types/sudokuTypes";
+import { isSudokuNumber, newCompletedSudoku } from "./sudokuHelpers";
+import { checkCompletedSudoku } from "./sudokuChecker";
 
-const sudokuSolver = (grid: SudokuGrid): SudokuGrid => {
-	return newCompletedSudoku();
-};
-
-const solveSudoku = (grid: SudokuGrid): boolean => {
+export const solveSudoku = (grid: SudokuGrid): boolean => {
 	const firstEmptyCoordinates = findFirstEmpty(grid);
 	if (!firstEmptyCoordinates) return true;
+
 	const [row, col] = firstEmptyCoordinates;
 	for (let i = 1; i < 10; i++) {
-		if (
-			isAssignable(
-				grid,
-				firstEmptyCoordinates[0],
-				firstEmptyCoordinates[1],
-				i,
-			) &&
-			isSudokuNumber(i)
-		) {
+		if (isAssignable(grid, row, col, i) && isSudokuNumber(i)) {
 			grid[row][col] = i;
+			if (solveSudoku(grid)) {
+				return true;
+			}
+
+			grid[row][col] = null;
 		}
 	}
 
@@ -60,8 +55,4 @@ const isAssignable = (
 	}
 
 	return true;
-};
-
-const isSudokuNumber = (i: number): i is SudokuNumber => {
-	return i >= 1 && i <= 9;
 };
