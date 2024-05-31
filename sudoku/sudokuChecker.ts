@@ -7,32 +7,6 @@ import type {
 } from "@/types/sudokuTypes";
 import { getBoxes, getColumns } from "./sudokuHelpers";
 
-// const isSafe = (
-// 	grid: SudokuGrid,
-// 	row: number,
-// 	col: number,
-// 	num: number,
-// ): boolean => {
-// 	// Check if num is not in the current row, column and 3x3 subgrid
-// 	for (let x = 0; x < 9; x++) {
-// 		if (grid[row][x] === num || grid[x][col] === num) {
-// 			return false;
-// 		}
-// 	}
-
-// 	const startRow = row - (row % 3);
-// 	const startCol = col - (col % 3);
-// 	for (let i = 0; i < 3; i++) {
-// 		for (let j = 0; j < 3; j++) {
-// 			if (grid[i + startRow][j + startCol] === num) {
-// 				return false;
-// 			}
-// 		}
-// 	}
-
-// 	return true;
-// };
-
 export const checkCompletedSudoku = (grid: SudokuGrid): boolean => {
 	return checkAllRows(grid) && checkAllColumns(grid) && checkAllBoxes(grid);
 };
@@ -100,3 +74,29 @@ const checkSudokuBox = (box: Box): boolean => {
 	}
 	return rowSet.size === 9;
 };
+
+// const isSafe = (
+// 	grid: SudokuGrid,
+// 	row: number,
+// 	col: number,
+// 	num: number,
+// ): boolean => {
+// 	// Check if num is not in the current row, column and 3x3 subgrid
+// 	for (let x = 0; x < 9; x++) {
+// 		if (grid[row][x] === num || grid[x][col] === num) {
+// 			return false;
+// 		}
+// 	}
+
+// 	const startRow = row - (row % 3);
+// 	const startCol = col - (col % 3);
+// 	for (let i = 0; i < 3; i++) {
+// 		for (let j = 0; j < 3; j++) {
+// 			if (grid[i + startRow][j + startCol] === num) {
+// 				return false;
+// 			}
+// 		}
+// 	}
+
+// 	return true;
+// };
