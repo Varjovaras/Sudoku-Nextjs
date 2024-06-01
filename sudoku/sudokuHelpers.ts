@@ -96,6 +96,11 @@ export const newCompletedSudoku = (): SudokuGrid => {
 	return sudoku;
 };
 
+export const isSudokuNumber = (i: number): i is SudokuNumber => {
+	return i >= 1 && i <= 9;
+};
+
+//test helper
 export const newCompletedSudokuWithOneMissing = (): SudokuGrid => {
 	const sudoku: SudokuGrid = [
 		[1, 9, 4, 8, 6, 5, 2, 3, 7],
@@ -111,11 +116,7 @@ export const newCompletedSudokuWithOneMissing = (): SudokuGrid => {
 
 	return sudoku;
 };
-
-export const isSudokuNumber = (i: number): i is SudokuNumber => {
-	return i >= 1 && i <= 9;
-};
-
+//test helper
 export const newCompletedSudokuWithLotMissing = (): SudokuGrid => {
 	const sudoku: SudokuGrid = [
 		[null, 9, null, null, null, 5, null, null, 7],

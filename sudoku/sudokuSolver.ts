@@ -1,9 +1,8 @@
 import type { SudokuGrid } from "@/types/sudokuTypes";
-import { isSudokuNumber, newCompletedSudoku } from "./sudokuHelpers";
-import { checkCompletedSudoku } from "./sudokuChecker";
+import { isSudokuNumber } from "./sudokuHelpers";
 
 export const solveSudoku = (grid: SudokuGrid): boolean => {
-	const firstEmptyCoordinates = findFirstEmpty(grid);
+	const firstEmptyCoordinates = findFirstEmptyCoordinates(grid);
 	if (!firstEmptyCoordinates) return true;
 
 	const [row, col] = firstEmptyCoordinates;
@@ -20,7 +19,9 @@ export const solveSudoku = (grid: SudokuGrid): boolean => {
 	return false;
 };
 
-const findFirstEmpty = (grid: SudokuGrid): [number, number] | null => {
+const findFirstEmptyCoordinates = (
+	grid: SudokuGrid,
+): [number, number] | null => {
 	for (let i = 0; i < grid.length; i++) {
 		for (let j = 0; j < grid[i].length; j++) {
 			if (grid[i][j] === null) {

@@ -1,14 +1,15 @@
-import {
-	newCompletedSudoku,
-	newCompletedSudokuWithLotMissing,
-	newCompletedSudokuWithMissing,
-} from "@/sudoku/sudokuHelpers";
+import { newCompletedSudoku } from "@/sudoku/sudokuHelpers";
+
 import { solveSudoku } from "@/sudoku/sudokuSolver";
 import { expect, test } from "bun:test";
+import {
+	newCompletedSudokuWithOneMissing,
+	newCompletedSudokuWithLotMissing,
+} from "./testHelpers";
 
 test("Sudoku solver works with a few missing", () => {
 	const completedSudoku = newCompletedSudoku();
-	const notCompletedSudoku = newCompletedSudokuWithMissing();
+	const notCompletedSudoku = newCompletedSudokuWithOneMissing();
 	solveSudoku(notCompletedSudoku);
 	expect(notCompletedSudoku).toEqual(completedSudoku);
 });
