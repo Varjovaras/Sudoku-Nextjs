@@ -1,5 +1,4 @@
 import { newCompletedSudoku } from "@/sudoku/sudokuHelpers";
-
 import { solveSudoku } from "@/sudoku/sudokuSolver";
 import { expect, test } from "bun:test";
 import {

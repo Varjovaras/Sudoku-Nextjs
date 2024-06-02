@@ -1,6 +1,13 @@
 import type { SudokuGrid } from "@/types/sudokuTypes";
 import { isSudokuNumber } from "./sudokuHelpers";
 
+export const returnCorrectSudoku = (grid: SudokuGrid): SudokuGrid => {
+	if (!solveSudoku(grid)) {
+		throw new Error("not solvable");
+	}
+	return grid;
+};
+
 export const solveSudoku = (grid: SudokuGrid): boolean => {
 	const firstEmptyCoordinates = findFirstEmptyCoordinates(grid);
 	if (!firstEmptyCoordinates) return true;
@@ -15,7 +22,6 @@ export const solveSudoku = (grid: SudokuGrid): boolean => {
 			grid[row][col] = null;
 		}
 	}
-
 	return false;
 };
 
