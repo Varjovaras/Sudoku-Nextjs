@@ -11,8 +11,8 @@ export const returnCorrectSudoku = (grid: SudokuGrid): SudokuGrid => {
 export const solveSudoku = (grid: SudokuGrid): boolean => {
 	const firstEmptyCoordinates = findFirstEmptyCoordinates(grid);
 	if (!firstEmptyCoordinates) return true;
-
 	const [row, col] = firstEmptyCoordinates;
+
 	for (let i = 1; i < 10; i++) {
 		if (isAssignable(grid, row, col, i) && isSudokuNumber(i)) {
 			grid[row][col] = i;
