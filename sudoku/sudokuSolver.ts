@@ -15,11 +15,11 @@ export const solveSudoku = (grid: SudokuGrid): boolean => {
 
 	for (let i = 1; i < 10; i++) {
 		if (isAssignable(grid, row, col, i) && isSudokuNumber(i)) {
-			grid[row][col] = i;
+			grid[row][col].value = i;
 			if (solveSudoku(grid)) {
 				return true;
 			}
-			grid[row][col] = null;
+			grid[row][col].value = null;
 		}
 	}
 	return false;
@@ -30,7 +30,7 @@ const findFirstEmptyCoordinates = (
 ): [number, number] | null => {
 	for (let i = 0; i < grid.length; i++) {
 		for (let j = 0; j < grid[i].length; j++) {
-			if (grid[i][j] === null) {
+			if (grid[i][j].value === null) {
 				return [i, j];
 			}
 		}
@@ -45,7 +45,7 @@ const isAssignable = (
 	num: number,
 ): boolean => {
 	for (let x = 0; x < 9; x++) {
-		if (grid[row][x] === num || grid[x][col] === num) {
+		if (grid[row][x].value === num || grid[x][col].value === num) {
 			return false;
 		}
 	}
@@ -54,7 +54,7 @@ const isAssignable = (
 	const startCol = col - (col % 3);
 	for (let i = 0; i < 3; i++) {
 		for (let j = 0; j < 3; j++) {
-			if (grid[i + startRow][j + startCol] === num) {
+			if (grid[i + startRow][j + startCol].value === num) {
 				return false;
 			}
 		}

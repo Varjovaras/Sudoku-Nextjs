@@ -6,13 +6,13 @@ interface SudokuButtonProps {
   j: number;
 }
 
-export const SudokuButton: FC<SudokuButtonProps> = ({ cell, j }) => {
+export const SudokuSquare: FC<SudokuButtonProps> = ({ cell, j }) => {
   return (
     <div
       className="border p-4"
       key={`${j.toString()}${j}${j}${cell?.toString()}`}
     >
-      {cell}
+      {cell.value}
     </div>
   );
 };

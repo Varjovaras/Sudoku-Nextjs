@@ -10,7 +10,10 @@ import type {
 //example cell
 
 export const newSudoku = (): SudokuGrid => {
-	const cell: Cell = null;
+	const cell: Cell = {
+		value: null,
+		preArranged: false,
+	};
 
 	const sudoku: SudokuGrid = [
 		[cell, cell, cell, cell, cell, cell, cell, cell, cell],
@@ -28,7 +31,11 @@ export const newSudoku = (): SudokuGrid => {
 };
 
 export const newBox = (): Box => {
-	const cell: Cell = null;
+	const cell: Cell = {
+		value: null,
+		preArranged: false,
+	};
+
 	const tempBox: Box = [
 		[cell, cell, cell],
 		[cell, cell, cell],
@@ -82,17 +89,106 @@ export const getColumns = (grid: SudokuGrid): SudokuGridOfColumns => {
  */
 export const newCompletedSudoku = (): SudokuGrid => {
 	const sudoku: SudokuGrid = [
-		[1, 9, 4, 8, 6, 5, 2, 3, 7],
-		[7, 3, 5, 4, 1, 2, 9, 6, 8],
-		[8, 6, 2, 3, 9, 7, 1, 4, 5],
-		[9, 2, 1, 7, 4, 8, 3, 5, 6],
-		[6, 7, 8, 5, 3, 1, 4, 2, 9],
-		[4, 5, 3, 9, 2, 6, 8, 7, 1],
-		[3, 8, 9, 6, 5, 4, 7, 1, 2],
-		[2, 4, 6, 1, 7, 9, 5, 8, 3],
-		[5, 1, 7, 2, 8, 3, 6, 9, 4],
+		[
+			newSudokuNumber(1),
+			newSudokuNumber(9),
+			newSudokuNumber(4),
+			newSudokuNumber(8),
+			newSudokuNumber(6),
+			newSudokuNumber(5),
+			newSudokuNumber(2),
+			newSudokuNumber(3),
+			newSudokuNumber(7),
+		],
+		[
+			newSudokuNumber(7),
+			newSudokuNumber(3),
+			newSudokuNumber(5),
+			newSudokuNumber(4),
+			newSudokuNumber(1),
+			newSudokuNumber(2),
+			newSudokuNumber(9),
+			newSudokuNumber(6),
+			newSudokuNumber(8),
+		],
+		[
+			newSudokuNumber(8),
+			newSudokuNumber(6),
+			newSudokuNumber(2),
+			newSudokuNumber(3),
+			newSudokuNumber(9),
+			newSudokuNumber(7),
+			newSudokuNumber(1),
+			newSudokuNumber(4),
+			newSudokuNumber(5),
+		],
+		[
+			newSudokuNumber(9),
+			newSudokuNumber(2),
+			newSudokuNumber(1),
+			newSudokuNumber(7),
+			newSudokuNumber(4),
+			newSudokuNumber(8),
+			newSudokuNumber(3),
+			newSudokuNumber(5),
+			newSudokuNumber(6),
+		],
+		[
+			newSudokuNumber(6),
+			newSudokuNumber(7),
+			newSudokuNumber(8),
+			newSudokuNumber(5),
+			newSudokuNumber(3),
+			newSudokuNumber(1),
+			newSudokuNumber(4),
+			newSudokuNumber(2),
+			newSudokuNumber(9),
+		],
+		[
+			newSudokuNumber(4),
+			newSudokuNumber(5),
+			newSudokuNumber(3),
+			newSudokuNumber(9),
+			newSudokuNumber(2),
+			newSudokuNumber(6),
+			newSudokuNumber(8),
+			newSudokuNumber(7),
+			newSudokuNumber(1),
+		],
+		[
+			newSudokuNumber(3),
+			newSudokuNumber(8),
+			newSudokuNumber(9),
+			newSudokuNumber(6),
+			newSudokuNumber(5),
+			newSudokuNumber(4),
+			newSudokuNumber(7),
+			newSudokuNumber(1),
+			newSudokuNumber(2),
+		],
+		[
+			newSudokuNumber(2),
+			newSudokuNumber(4),
+			newSudokuNumber(6),
+			newSudokuNumber(1),
+			newSudokuNumber(7),
+			newSudokuNumber(9),
+			newSudokuNumber(5),
+			newSudokuNumber(8),
+			newSudokuNumber(3),
+		],
+		[
+			newSudokuNumber(5),
+			newSudokuNumber(1),
+			newSudokuNumber(7),
+			newSudokuNumber(2),
+			newSudokuNumber(8),
+			newSudokuNumber(3),
+			newSudokuNumber(6),
+			newSudokuNumber(9),
+			newSudokuNumber(4),
+		],
 	];
-
 	return sudoku;
 };
 
@@ -100,3 +196,14 @@ export const isSudokuNumber = (i: number): i is SudokuNumber => {
 	return i >= 1 && i <= 9;
 };
 
+export const newSudokuNumber = (value?: SudokuNumber): Cell => {
+	return value
+		? {
+				value,
+				preArranged: true,
+			}
+		: {
+				value: null,
+				preArranged: false,
+			};
+};
