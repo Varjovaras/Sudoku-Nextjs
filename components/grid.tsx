@@ -1,5 +1,5 @@
-import type { SudokuGrid } from "@/types/sudokuTypes";
-import type { FC } from "react";
+import type { Cell, SudokuGrid } from "@/types/sudokuTypes";
+import { useState, type FC } from "react";
 import { SudokuButton } from "./sudokuButton";
 
 interface GridProps {
@@ -15,7 +15,13 @@ export const Grid: FC<GridProps> = ({ sudoku }) => {
 						if (cell !== null) {
 							return <SudokuButton cell={cell} j={j} />;
 						}
-						return <input className="border p-4" key={`${j.toString()}${j}`} />;
+						return (
+							<input
+								type="number"
+								className="border p-4"
+								key={`${j.toString()}${j}`}
+							/>
+						);
 					})}
 				</div>
 			))}

@@ -8,8 +8,8 @@ interface SudokuButtonProps {
 
 export const SudokuButton: FC<SudokuButtonProps> = ({ cell, j }) => {
 	return (
-		<button className="border p-4" type="button" key={`${j.toString()}${j}`}>
+		<div className="border p-4" key={`${j.toString()}${j}`}>
 			{cell}
-		</button>
+		</div>
 	);
 };
