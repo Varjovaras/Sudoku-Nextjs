@@ -38,7 +38,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.3",
+    "@biomejs/biome": "1.8.0",
     "@types/bun": "latest"
   },
   "module": "index.ts",
