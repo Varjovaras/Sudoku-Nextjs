@@ -1,0 +1,13 @@
+.input-no-spinner {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  padding: 1rem;
+  @apply border overflow-auto max-w-full w-full;
+}
+
+/* Webkit browsers like Chrome, Safari */
+.input-no-spinner::-webkit-inner-spin-button,
+.input-no-spinner::-webkit-outer-spin-button {
+  display: none;
+}
