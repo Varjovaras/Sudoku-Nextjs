@@ -54,10 +54,10 @@ export const checkAllBoxes = (grid: SudokuGrid): boolean => {
 const checkSudokuRowOrColumn = (row: Row | Column): boolean => {
 	const rowSet = new Set<SudokuNumber>();
 	for (const cell of row) {
-		if (!cell) {
+		if (!cell.value) {
 			return false;
 		}
-		rowSet.add(cell);
+		rowSet.add(cell.value);
 	}
 	return rowSet.size === 9;
 };
@@ -66,12 +66,11 @@ const checkSudokuBox = (box: Box): boolean => {
 	const rowSet = new Set<SudokuNumber>();
 	for (const boxRow of box) {
 		for (const cell of boxRow) {
-			if (!cell) {
+			if (!cell.value) {
 				return false;
 			}
-			rowSet.add(cell);
+			rowSet.add(cell.value);
 		}
 	}
 	return rowSet.size === 9;
 };
-
