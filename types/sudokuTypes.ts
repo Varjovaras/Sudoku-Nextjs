@@ -5,18 +5,18 @@ export type Box = [[Cell, Cell, Cell], [Cell, Cell, Cell], [Cell, Cell, Cell]];
 export type Column = [Cell, Cell, Cell, Cell, Cell, Cell, Cell, Cell, Cell];
 export type SudokuGrid = [Row, Row, Row, Row, Row, Row, Row, Row, Row]; // 9 rows in a grid
 export type SudokuGridOfBoxes = [
-  [Box, Box, Box],
-  [Box, Box, Box],
-  [Box, Box, Box],
+	[Box, Box, Box],
+	[Box, Box, Box],
+	[Box, Box, Box],
 ];
 export type SudokuGridOfColumns = [
-  Column,
-  Column,
-  Column,
-  Column,
-  Column,
-  Column,
-  Column,
-  Column,
-  Column,
+	Column,
+	Column,
+	Column,
+	Column,
+	Column,
+	Column,
+	Column,
+	Column,
+	Column,
 ];

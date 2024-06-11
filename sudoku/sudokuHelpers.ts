@@ -201,9 +201,9 @@ export const newSudokuNumber = (value?: SudokuNumber): Cell => {
 		? {
 				value,
 				preArranged: true,
-			}
+		  }
 		: {
 				value: null,
 				preArranged: false,
-			};
+		  };
 };
