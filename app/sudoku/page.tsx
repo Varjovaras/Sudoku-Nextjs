@@ -4,6 +4,7 @@ import { Grid } from "@/components/grid";
 import { title } from "@/components/primitives";
 import { SolveSudokuButton } from "@/components/solveSudokuButton";
 import { checkCompletedSudoku } from "@/sudoku/sudokuChecker";
+import { makeSudokuImmutable } from "@/sudoku/sudokuHelpers";
 import { newCompletedSudokuWithOneMissing } from "@/tests/testHelpers";
 import type { SudokuNumber, SudokuGrid } from "@/types/sudokuTypes";
 import { useState } from "react";
@@ -22,6 +23,7 @@ export default function DocsPage() {
       }, 5000);
       return;
     }
+    setSudoku(makeSudokuImmutable(sudoku));
     setErrorMessage("");
     setSolved(solved);
   };
@@ -37,7 +39,7 @@ export default function DocsPage() {
       <h1 className={title()}>Sudoku</h1>
       <Grid sudoku={sudoku} updateSudoku={updateSudoku} />
       <ErrorMessage errorMessage={errorMessage} />
-      <SolveSudokuButton solved={solved} setSolvedSudoku={setSolvedSudoku} />
+      <SolveSudokuButton setSolvedSudoku={setSolvedSudoku} />
     </section>
   );
 }

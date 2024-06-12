@@ -55,6 +55,7 @@ export const newSudokuGridOfBoxes = (): SudokuGridOfBoxes => {
 //j represents the three boxes in a row
 //k is the index of row of cells inside a box
 //o is the actual index of the cell inside a box
+//:D
 export const getBoxes = (grid: SudokuGrid): SudokuGridOfBoxes => {
   const box: SudokuGridOfBoxes = newSudokuGridOfBoxes();
   for (let i = 0; i < 3; i++) {
@@ -204,4 +205,15 @@ export const newSudokuNumber = (value?: SudokuNumber): Cell => {
         value: null,
         preArranged: false,
       };
+};
+
+export const makeSudokuImmutable = (sudoku: SudokuGrid): SudokuGrid => {
+  for (const row of sudoku) {
+    for (const cell of row) {
+      if (!cell.preArranged) {
+        cell.preArranged = true;
+      }
+    }
+  }
+  return sudoku;
 };
