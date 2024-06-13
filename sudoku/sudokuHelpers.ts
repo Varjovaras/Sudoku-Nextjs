@@ -10,7 +10,7 @@ import type {
 export const newSudoku = (): SudokuGrid => {
 	const cell: Cell = {
 		value: null,
-		preArranged: false,
+		preArranged: true,
 	};
 
 	const sudoku: SudokuGrid = [
@@ -98,13 +98,13 @@ export const newSudokuNumber = (value?: SudokuNumber): Cell => {
 			};
 };
 
-export const makeSudokuImmutable = (sudoku: SudokuGrid): Cell[][] => {
+export const makeSudokuImmutable = (sudoku: SudokuGrid): SudokuGrid => {
 	return sudoku.map((row) =>
 		row.map((cell) => ({
 			...cell,
 			preArranged: true,
 		})),
-	);
+	) as SudokuGrid;
 };
 
 /**
