@@ -11,8 +11,6 @@ interface GridProps {
 }
 
 export const Grid: FC<GridProps> = ({ sudoku, updateSudoku }) => {
-	const ref = useRef(null);
-
 	return (
 		<div className="p-4 overflow-auto">
 			{sudoku.map((row, i) => (
