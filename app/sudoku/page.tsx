@@ -37,10 +37,9 @@ export default function DocsPage() {
 		setSudoku(newSudoku);
 	};
 
-	const generateSubaru = () => {
-		console.log(":D");
-		setSudoku(generateSudoku());
-	};
+	// const generateSudoku = () => {
+	// 	setSudoku(generateSudoku());
+	// };
 
 	return (
 		<section>
